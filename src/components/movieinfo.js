@@ -1,19 +1,26 @@
 import {getMovieRecommendationsFetch} from "../api";
 import {createListMovie} from "./listmovie";
 
-// function getMovieRecommendations (id) {
-//     getMovieRecommendationsFetch (id).then(response => {return response.json()})
-//         .then(result => {});
-// }
+export const showMovieInfo = function (el) {
+    console.log(el);
 
-// const createMovieRecommendationEl = (listRecomMovies) => {
-//     let conteinerRecommendMovies = createListMovie(listRecomMovies);
-//     console.log(conteinerRecommendMovies);
-//     return conteinerRecommendMovies;
-// }
+    let conteinerMovie = createMovieInfoEl(el);
+    
+    let listRecomendations = document.querySelector(".conteiner-movie > .conteiner-recomendation");
+    if(!listRecomendations) {
+      listRecomendations = document.querySelector("#app > .conteiner-list");
+    }
+    listRecomendations.replaceWith(conteinerMovie);
+}
+
 export const createMovieInfoEl = function (el) {
     let recommendMovies = document.createElement("div");
-
+    recommendMovies.className = "conteiner-recomendation";
+    let titleRecom = document.createElement("h2");
+    let texttitleRecom = document.createTextNode("Recomendations");
+    titleRecom.append(texttitleRecom);
+    recommendMovies.append(titleRecom);
+    
     function getMovieRecommendations (id, elRecomend) {
         getMovieRecommendationsFetch (id).then(response => {return response.json()})
             .then(result => {elRecomend.append(createListMovie(result.results))});
@@ -36,7 +43,6 @@ export const createMovieInfoEl = function (el) {
     
     getMovieRecommendations(el.id, recommendMovies);
     
-
     conteinerMovieInfo.append(poster, nameMovie, resumeMovie, recommendMovies);
 
     return conteinerMovieInfo;
