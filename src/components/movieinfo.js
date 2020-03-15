@@ -17,7 +17,7 @@ export const createMovieInfoEl = function (el) {
     let recommendMovies = document.createElement("div");
     recommendMovies.className = "conteiner-recomendation";
     let titleRecom = document.createElement("h2");
-    let texttitleRecom = document.createTextNode("Recomendations");
+    let texttitleRecom = document.createTextNode("Recommendations");
     titleRecom.append(texttitleRecom);
     recommendMovies.append(titleRecom);
     

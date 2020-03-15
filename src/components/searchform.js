@@ -7,7 +7,7 @@ const addListMovieBySearch = function(f) {
     if (!listPrevios) {
         listPrevios = document.querySelector("#app > .conteiner-movie");
     }
-    console.log(listPrevios);
+    
     listPrevios.replaceWith(list);
 };
 const getMoviesByQuery = function(query) {
@@ -28,11 +28,11 @@ export const createSearchMovieForm = function() {
     form.addEventListener("submit", event => {
         let userInput =
             document.forms["containerForm"].elements.userInput.value;
-        console.log(userInput);
         if (userInput) {
             event.preventDefault();
             getMoviesByQuery(userInput);
-            document.forms[0].userInput.value = "";
+            document.forms["containerForm"].reset();
+            document.forms[0].userInput.value = "";   
         }
     });
     form.append(inputForm, buttonForm);
