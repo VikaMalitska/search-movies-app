@@ -21,7 +21,6 @@ export const createSearchMovieForm = function() {
     form.name = "containerForm";
     let inputForm = document.createElement("input");
     inputForm.name = "userInput";
-    inputForm.required;
     let buttonForm = document.createElement("input");
     buttonForm.type = "submit";
 

@@ -3,9 +3,12 @@ body {
 }
 
 li {
-    color: blue;
-    text-decoration: underline;
+  box-sizing: border-box;
+  width: fit-content;
+  color: blue;
+  text-decoration: underline; 
 }
+
 li:hover {
     color: blueviolet;
 }
